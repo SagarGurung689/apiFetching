@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:getting_api/changeNotifier/news_provider.dart';
+
 import 'package:getting_api/screen/homeScreen.dart';
-import 'package:getting_api/screen/newsScreen.dart';
+
+import 'package:getting_api/view_model/gorkhapatra_viewmodels.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -16,17 +17,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => NewsProvider()),
+        ChangeNotifierProvider(create: (_) => GorkhaPatraViewModel()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
-       
-        routes: {
-       
-          '/news' : (context) => NewsScreen()
-      
-        },
         theme: ThemeData(
           // This is the theme of your application.
           //
