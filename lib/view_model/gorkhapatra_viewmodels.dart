@@ -1,29 +1,33 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:getting_api/data/response/api_response.dart';
 import 'package:getting_api/model/news_model.dart';
 import 'package:getting_api/repository/gorkhapatra_repository.dart';
 
-class GorkhaPatraViewModel with ChangeNotifier {
-  final _gorkhaPatraRepo = GorkhaPatraRepository();
-  ApiResponse<List<News>> gorkhapatras = ApiResponse.loading();
+import '../data/response/api_response.dart';
 
-  setGorkhapatras(ApiResponse<List<News>> response) {
+
+
+class GorkhapatraViewModel with ChangeNotifier {
+  final _gpRepo = GorkhapatraRepository();
+  ApiResponse<List<GorkhaPatra>> gorkhapatras = ApiResponse.loading();
+
+  setGorkhapatras(ApiResponse<List<GorkhaPatra>> response) {
     print(response.toString());
     gorkhapatras = response;
- 
     notifyListeners();
   }
 
-  Future<void> fetchGorkhaPatra() async {
+  Future<void> fetchGorkhapatra() async {
     setGorkhapatras(ApiResponse.loading());
-    print("Loading and getting gorkhapatra");
+    print("loading gorkhapatra getting gorkhapatra");
 
-    _gorkhaPatraRepo.getGorkhaPatra().then((value) {
-      print("Success getting gorkhapatra");
+    _gpRepo.getGorkhapatra().then((value) {
+      print("sucess getting gorkhapatra");
 
       setGorkhapatras(ApiResponse.success(value));
     }).onError((error, stackTrace) {
-      print("error gorokhaptara getting gorkhapatra");
+      print("error gorkhapatra getting gorkhapatra");
 
       setGorkhapatras(ApiResponse.error(error.toString()));
     });

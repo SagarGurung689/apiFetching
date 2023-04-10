@@ -1,22 +1,21 @@
-import 'package:getting_api/data/network/base_api_services.dart';
-import 'package:getting_api/data/network/network_api_services.dart';
-import 'package:getting_api/model/news_model.dart';
-import 'package:getting_api/resources/app_urls.dart';
 
-class GorkhaPatraRepository {
+import '../data/network/base_api_services.dart';
+import '../data/network/network_api_services.dart';
+import '../model/news_model.dart';
+import '../resources/app_urls.dart';
+
+class GorkhapatraRepository {
   BaseApiServices _apiServices = NetworkApiService();
 
-  Future<List<News>> getGorkhaPatra() async {
+  Future<List<GorkhaPatra>> getGorkhapatra() async {
     try {
-      List<News> gorkhapatras = [];
+      List<GorkhaPatra> gorkhapatras = [];
 
-      dynamic repsonse =
-          await _apiServices.getGetApiResponse(AppUrls.gorkhaPatraEndpoint);
-
-      for (var gp in repsonse) {
-        News news = News.fromJson(gp);
-        gorkhapatras.add(news);
-        print(news);
+      dynamic response =
+          await _apiServices.getGetApiResponse(AppUrls.gorkhapatraEndpoint);
+      for (var gp in response) {
+        GorkhaPatra gorkhapatra = GorkhaPatra.fromJson(gp);
+        gorkhapatras.add(gorkhapatra);
       }
       return gorkhapatras;
     } catch (e) {

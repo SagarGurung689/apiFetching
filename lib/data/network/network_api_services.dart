@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:getting_api/data/app_excpetions.dart';
 import 'package:http/http.dart' as http;
+import 'package:http/http.dart';
 import 'base_api_services.dart';
 
 class NetworkApiService extends BaseApiServices {
@@ -42,16 +43,20 @@ class NetworkApiService extends BaseApiServices {
     switch(response.statusCode){
 
       case 200 :
-      case 201:
+      case 201 :
+  
       dynamic jsonData = Utf8Decoder().convert(response.bodyBytes);
       dynamic responseJson = json.decode(jsonData);
       return responseJson;
 
-      case 400:
-      throw BadRequestException("Bad Request");
 
+      case 400:
+      throw BadRequestException("Bad request");
+
+      
+      
       case 404:
-      throw UnauthorizedRequest("Unauthorized Request with status code : ${response.statusCode}");
+      throw UnauthorizedException("Unauthorized Request with status code : ${response.statusCode}");
 
       default: 
       throw FetchDataException('Error occured while Communication with Server with StatusCode : ${response.statusCode}');

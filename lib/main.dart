@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'package:getting_api/screen/homeScreen.dart';
+
+import 'package:getting_api/utils/routes/routes.dart';
+import 'package:getting_api/utils/routes/routes_name.dart';
 
 import 'package:getting_api/view_model/gorkhapatra_viewmodels.dart';
+
 import 'package:provider/provider.dart';
 
 void main() {
@@ -17,7 +20,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => GorkhaPatraViewModel()),
+      
+        ChangeNotifierProvider(create: (_) => GorkhapatraViewModel()),
+   
+
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -34,7 +40,9 @@ class MyApp extends StatelessWidget {
           // is not restarted.
           primarySwatch: Colors.blue,
         ),
-        home: const HomeScreen(),
+        initialRoute: RoutesName.home,
+        onGenerateRoute: Routes.generateRoute,
+        // home: const HomeScreen(),
       ),
     );
   }

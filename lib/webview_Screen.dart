@@ -53,25 +53,7 @@ class _WebViewScreenState extends State<WebViewScreen> {
       },
       child: SafeArea(
         child: Scaffold(
-          // bottomNavigationBar: widget.showbottomad
-          //     ?
-
-          //     Container(
-          //         height: MediaQuery.of(context).size.height * 0.08,
-          //         child: adWidget,
-          //       )
-          //     : null,
-          // bottomNavigationBar: Container(
-          //   height: MediaQuery.of(context).size.height * 0.08,
-          //   child: FacebookBannerAd(
-          //     keepAlive: true,
-          //     placementId: "171963307955660_171964114622246",
-          //     bannerSize: BannerSize.STANDARD,
-          //     listener: (result, value) {
-          //       print("Banner Ad: $result -->  $value");
-          //     },
-          //   ),
-          // ),
+   
           body: Stack(
             children: [
               WebView(

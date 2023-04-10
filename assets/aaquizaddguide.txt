@@ -1,0 +1,41 @@
+Welcome to loksewa tayari quiz Database. In this guide you will learn how you can add quiz to the loksewa tayari quiz Database
+
+1. Make sure that git is installed on your computer and you have basic knowledge of git.
+2. Now you can see file named called aa-QUIZ_format file listed in assests directory copy the file content.
+3. Now create a new json file and paste the format and input required question options and answers.
+
+
+//Naming conventions strictly for this project//
+
+-For computer operator mcq: Json filename format must be computeroperator1.json, computeroperator2.json, computeroperator3.json, computeroperator4.json  and so on.
+-For engineering mcq: json filename format must be civileng1.json, civileng2.json, civileng3.json, civileng4.json  and so on.
+
+Make sure that same file name is not repeated for example there are already sets upto civileng8.json next file name should be civileng9.json.
+
+// Instructions while adding a question
+
+1. Question must be one line if it is in two line while paste remove the spaces ahead of 2nd line and make it go in first line.
+2. If there is "" in the question use \(this slash) before  using "" in the question.
+
+example: sample question "question": "Who said this famous saying "Code never lies but comments sometimes do" " 
+In this case use \" like this  "question": "Who said this famous saying \"Code never lies but comments sometimes do\" " 
+
+** same for any error for symbol you encounter
+
+3. Make sure that there is no empty space between options and ansers
+
+Example :   Having empty space
+// wrong structure
+"a": "Salt glazing is used",
+            "b": "Lead glazing is used  ", // having empty space at the end
+            "c": "   Opaque glazing is used",// having empty  space at the beginning
+            "d": "None of these"
+
+
+            // Correct structure
+
+            "a": "Salt glazing is used", // no space between quotation and options
+            "b": "Lead glazing is used",
+            "c": "Opaque glazing is used",
+            "d": "None of these"
+

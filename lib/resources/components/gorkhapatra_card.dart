@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:getting_api/webview_Screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
 class GpCard extends StatelessWidget {
   final String? title;
   final String? desscription;
@@ -56,10 +55,7 @@ class GpCard extends StatelessWidget {
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: [
-                    Colors.indigo,
-                    Colors.indigo.shade100
-                  ],
+                  colors: [Colors.indigo, Colors.indigo.shade100],
                   stops: [
                     0.1,
                     0.6,
@@ -67,7 +63,7 @@ class GpCard extends StatelessWidget {
                 ),
                 image: DecorationImage(
                   image: NetworkImage(imageurl!),
-                  opacity: 0.2,
+                  opacity: 0.5,
                   fit: BoxFit.fill,
                 ),
               ),
@@ -99,17 +95,6 @@ class GpCard extends StatelessWidget {
                       fontWeight: FontWeight.w800,
                       letterSpacing: -0.2,
                       color: Colors.white,
-                    ),
-                  ),
-                  Text(
-                    desscription!.trim(),
-                    maxLines: 1,
-                    overflow: TextOverflow.fade,
-                    style: GoogleFonts.mukta(
-                      fontSize: 13,
-                      fontWeight: FontWeight.w400,
-                      letterSpacing: -0.2,
-                      color: Colors.white.withOpacity(0.8),
                     ),
                   ),
                 ],
